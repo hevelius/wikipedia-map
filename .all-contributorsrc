@@ -1,0 +1,23 @@
+{
+  "projectName": "wikipedia-map",
+  "projectOwner": "dawidjaniga",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "dawidjaniga",
+      "name": "Kent C. Dodds",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/8960952?s=460&v=4",
+      "profile": "https://dawidjaniga.pl",
+      "contributions": [
+        "code",
+        "doc",
+        "infra",
+        "test"
+      ]
+    }
+  ]
+}

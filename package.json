@@ -1,0 +1,52 @@
+{
+  "name": "wikipedia-map",
+  "version": "0.0.0-semantically-released",
+  "description": "Visualise Wikipedia articles in Virtual Reality",
+  "main": "dist/index.js",
+  "engines": {
+    "node": "> 4",
+    "npm": "> 3"
+  },
+  "scripts": {
+    "add-contributor": "kcd-scripts contributors add",
+    "build": "kcd-scripts build",
+    "lint": "kcd-scripts lint",
+    "test": "kcd-scripts test",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "validate": "kcd-scripts validate",
+    "setup": "npm install && npm run validate -s"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "Dawid Janiga <dawidjaniga@gmail.com> (https://dawidjaniga.pl)",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.2.0"
+  },
+  "devDependencies": {
+    "kcd-scripts": "^0.46.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "kcd-scripts pre-commit"
+    }
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/kcd-scripts/eslint.js"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dawidjaniga/wikipedia-map.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dawidjaniga/wikipedia-map/issues"
+  },
+  "homepage": "https://github.com/dawidjaniga/wikipedia-map#readme"
+}
