@@ -74,7 +74,8 @@ here!
 Thanks goes to these people ([emoji key][emojis]):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-| [<img src="https://avatars.githubusercontent.com/u/1500684?v=3" width="100px;"/><br /><sub>Kent C. Dodds</sub>](https://kentcdodds.com)<br />[💻](https://github.com/kentcdodds/wikipedia-map/commits?author=kentcdodds) [📖](https://github.com/kentcdodds/wikipedia-map/commits?author=kentcdodds) 🚇 [⚠️](https://github.com/kentcdodds/wikipedia-map/commits?author=kentcdodds) |
+<!-- prettier-ignore -->
+| [<img src="https://avatars3.githubusercontent.com/u/8960952?s=460&v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Kent C. Dodds</b></sub>](https://dawidjaniga.pl)<br />[💻](https://github.com/dawidjaniga/wikipedia-map/commits?author=dawidjaniga "Code") [📖](https://github.com/dawidjaniga/wikipedia-map/commits?author=dawidjaniga "Documentation") [🚇](#infra-dawidjaniga "Infrastructure (Hosting, Build-Tools, etc)") [⚠️](https://github.com/dawidjaniga/wikipedia-map/commits?author=dawidjaniga "Tests") [🖋](#content-dawidjaniga "Content") [🎨](#design-dawidjaniga "Design") [🤔](#ideas-dawidjaniga "Ideas, Planning, & Feedback") |
 | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 

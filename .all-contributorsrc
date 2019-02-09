@@ -16,8 +16,12 @@
         "code",
         "doc",
         "infra",
-        "test"
+        "test",
+        "content",
+        "design",
+        "ideas"
       ]
     }
-  ]
+  ],
+  "repoType": "github"
 }
