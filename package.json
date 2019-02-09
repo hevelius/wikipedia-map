@@ -26,6 +26,7 @@
     "@babel/runtime": "^7.2.0"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0",
     "kcd-scripts": "^0.46.0"
   },
   "husky": {
@@ -48,5 +49,10 @@
   "bugs": {
     "url": "https://github.com/dawidjaniga/wikipedia-map/issues"
   },
-  "homepage": "https://github.com/dawidjaniga/wikipedia-map#readme"
+  "homepage": "https://github.com/dawidjaniga/wikipedia-map#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
