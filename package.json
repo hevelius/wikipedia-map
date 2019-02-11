@@ -13,6 +13,7 @@
     "test:update": "npm test -- --updateSnapshot --coverage",
     "validate": "kcd-scripts validate",
     "setup": "npm install && npm run validate -s",
+    "start": "npm run dev",
     "dev": "run-s dev:js webpack-server",
     "build": "run-s prebuild build:dir build:js",
     "prebuild": "run-s clean lint",
