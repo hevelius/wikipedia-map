@@ -32,10 +32,6 @@ export default {
       emissive: 0xffffff
     }
   },
-  fog: {
-    color: 0xffffff,
-    near: 0.0008
-  },
   camera: {
     fov: 40,
     near: 2,
@@ -50,6 +46,8 @@ export default {
     autoRotateSpeed: -0.5,
     rotateSpeed: 0.5,
     zoomSpeed: 0.8,
+    lookSpeed: 0.1,
+    movementSpeed: 100,
     minDistance: 200,
     maxDistance: 600,
     minPolarAngle: Math.PI / 5,

@@ -1,20 +1,20 @@
 import * as THREE from 'three';
 
-import OrbitControls from '../../utils/orbitControls';
+import FirstPersonControls from '../../utils/firstPersonControls';
+
 import Config from '../../data/config';
 
-// Controls based on orbit controls
 export default class Controls {
-  constructor(camera, container) {
-    // Orbit controls first needs to pass in THREE to constructor
-    const orbitControls = new OrbitControls(THREE);
-    this.threeControls = new orbitControls(camera, container);
-
+  constructor(camera) {
+    const firstPersonControls = FirstPersonControls(THREE);
+    this.threeControls = new firstPersonControls( camera )
     this.init();
   }
 
   init() {
-    this.threeControls.target.set(Config.controls.target.x, Config.controls.target.y, Config.controls.target.z);
+    this.threeControls.lookAt(Config.controls.target.x, Config.controls.target.y, Config.controls.target.z);
+    this.threeControls.movementSpeed = Config.controls.movementSpeed;
+    this.threeControls.lookSpeed = Config.controls.lookSpeed;
     this.threeControls.autoRotate = Config.controls.autoRotate;
     this.threeControls.autoRotateSpeed = Config.controls.autoRotateSpeed;
     this.threeControls.rotateSpeed = Config.controls.rotateSpeed;

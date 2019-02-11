@@ -36,8 +36,14 @@ export default class Main {
 
     // Main scene creation
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x000000)
-    this.scene.fog = new THREE.FogExp2(Config.fog.color, Config.fog.near);
+    const  cubeTextureLoader = new THREE.CubeTextureLoader()
+    cubeTextureLoader.setPath( './assets/textures/' );
+    const cubeTexture = cubeTextureLoader.load( [
+      'px.jpg', 'nx.jpg',
+      'py.jpg', 'ny.jpg',
+      'pz.jpg', 'nz.jpg',
+    ] )
+    this.scene.background = cubeTexture
 
     // Get Device Pixel Ratio first for retina
     if(window.devicePixelRatio) {
@@ -56,50 +62,16 @@ export default class Main {
     const lights = ['ambient', 'directional', 'point', 'hemi'];
     lights.forEach((light) => this.light.place(light));
 
-    // Create and place geo in scene
-    this.geometry = new Geometry(this.scene);
-    this.geometry.make('plane')(150, 150, 10, 10);
-    this.geometry.place([0, -20, 0], [Math.PI / 2, 0, 0]);
-
     // Set up rStats if dev environment
     if(Config.isDev && Config.isShowingStats) {
       this.stats = new Stats(this.renderer);
       this.stats.setUp();
     }
 
-    // Instantiate texture class
-    this.texture = new Texture();
+    // Expose Three.js and scene for Three.js Inspector DevTools Extension
+    window.scene = this.scene
+    window.THREE = THREE
 
-    // Start loading the textures and then go on to load the model after the texture Promises have resolved
-    this.texture.load().then(() => {
-      this.manager = new THREE.LoadingManager();
-
-      // Textures loaded, load model
-      this.model = new Model(this.scene, this.manager, this.texture.textures);
-      this.model.load();
-
-      // onProgress callback
-      this.manager.onProgress = (item, loaded, total) => {
-        console.log(`${item}: ${loaded} ${total}`);
-      };
-
-      // All loaders done now
-      this.manager.onLoad = () => {
-        // Set up interaction manager with the app now that the model is finished loading
-        new Interaction(this.renderer.threeRenderer, this.scene, this.camera.threeCamera, this.controls.threeControls);
-
-        // Add dat.GUI controls if dev
-        if(Config.isDev) {
-          new DatGUI(this, this.model.obj);
-        }
-
-        // Everything is now fully loaded
-        Config.isLoaded = true;
-        this.container.querySelector('#loading').style.display = 'none';
-      };
-    });
-
-    // Start render which does not wait for model fully loaded
     this.render();
   }
 
@@ -117,12 +89,8 @@ export default class Main {
       Stats.end();
     }
 
-    // Delta time is sometimes needed for certain updates
-    //const delta = this.clock.getDelta();
-
-    // Call any vendor or module frame updates here
     TWEEN.update();
-    this.controls.threeControls.update();
+    this.controls.threeControls.update( this.clock.getDelta() )
 
     // RAF
     requestAnimationFrame(this.render.bind(this)); // Bind the main class instead of window object
